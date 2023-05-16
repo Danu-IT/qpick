@@ -25,6 +25,7 @@ import {
   Right,
   User,
 } from "./style";
+import { brandData } from "../../utils/data";
 
 const Header = ({}) => {
   const [isVisibleContentDropdown, setisVisibleContentDropdown] =
@@ -89,6 +90,7 @@ const Header = ({}) => {
           <Name>{name}</Name>
         </User>
         <DropDown
+          content={brandData}
           onClick={visibleContentDropdown}
           visible={isVisibleContentDropdown}></DropDown>
       </Left>

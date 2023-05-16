@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
-export const Container = styled.button`
-  width: 100%;
+interface ContainerProps {
+  w?: string;
+}
+
+export const Container = styled.button<ContainerProps>`
+  width: ${({w}) => w ? w : '100%'};
   background-color: black;
   color: white;
   border: none;
