@@ -9,13 +9,13 @@ import {
 } from "../../../store/slices/isProductsSlice";
 import styled from "styled-components";
 import Content from "./components/Content/Content";
-
+import Footer from "../../../components/Footer/Footer";
+// 4:39:22
 const Home = ({}) => {
   const { filteredId, fullProducts } = useAppSelector((state) => ({
     filteredId: state.isProductsSlice.filteredId,
     fullProducts: state.isProductsSlice.fullProducts,
   }));
-
   const dispatch = useAppDispatch();
 
   const fetchData = async () => {
@@ -38,7 +38,6 @@ const Home = ({}) => {
     const filteredProducts = fullProducts.filter(
       (el) => el.brandID === filteredId
     );
-    console.log(filteredProducts);
     dispatch(changeFilteredProducts(filteredProducts));
   }, [filteredId]);
 
@@ -50,6 +49,7 @@ const Home = ({}) => {
     <div>
       <Header></Header>
       <Content></Content>
+      <Footer></Footer>
     </div>
   );
 };

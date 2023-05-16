@@ -27,3 +27,9 @@ export const colorData: OptionType[] = [
     {id: 7, value: '#8c12c9', label: 'Фиолетовый' },
     {id: 7, value: '#06590a', label: 'Зеленый' },
 ]
+
+export const langData = [
+    {id: 1, value: 'Каз'},
+    {id: 2, value: 'Рус'},
+    {id: 3, value: 'Eng'}
+]
