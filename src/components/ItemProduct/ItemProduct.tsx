@@ -1,12 +1,11 @@
-import React from "react";
 import styled from "styled-components";
 import { FC } from "react";
-import { ProdictI } from "../../interfaces/data";
+import { ProdictCurrentI } from "../../interfaces/data";
 import { AiFillStar, AiOutlineHeart } from "react-icons/ai";
 import { BiRuble } from "react-icons/bi";
 
 interface ItemProductProps {
-  item: ProdictI;
+  item: ProdictCurrentI;
 }
 
 const ItemProduct: FC<ItemProductProps> = ({ item }) => {
@@ -15,7 +14,7 @@ const ItemProduct: FC<ItemProductProps> = ({ item }) => {
       <Like>
         <AiOutlineHeart size={20}></AiOutlineHeart>
       </Like>
-      <Image src={item.imageURl}></Image>
+      <Image src={item.imageURl[0]}></Image>
       <Center>
         <Name>{item.model}</Name>
         <Price>

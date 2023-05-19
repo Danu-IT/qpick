@@ -1,16 +1,18 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { ProdictI } from "../../interfaces/data";
+import { ProdictCurrentI, ProdictI } from "../../interfaces/data";
 
 interface isProductsState {
     filteredId: number;
     fullProducts: ProdictI[];
     filteredProducts: ProdictI[];
+    filteredProductsCurrent: ProdictCurrentI[];
 }
 
 const initialState: isProductsState = {
     filteredId: 1,
     fullProducts: [],
     filteredProducts: [],
+    filteredProductsCurrent: []
 }
 
 export const isProductsSlice = createSlice({
@@ -25,9 +27,12 @@ export const isProductsSlice = createSlice({
         },
         changeFilteredProducts: (state, action: PayloadAction<ProdictI[]>) => {
             state.filteredProducts = action.payload;
+        },
+        changeFilteredProductsCurrent: (state, action: PayloadAction<ProdictCurrentI[]>) => {
+            state.filteredProductsCurrent = action.payload;
         }
     }
 })
 
 export default isProductsSlice.reducer;
-export const { changeFilteredId, fetchFullProducts, changeFilteredProducts } = isProductsSlice.actions;
+export const { changeFilteredId, fetchFullProducts, changeFilteredProducts, changeFilteredProductsCurrent } = isProductsSlice.actions;

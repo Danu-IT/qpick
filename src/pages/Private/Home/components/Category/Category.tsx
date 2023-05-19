@@ -9,14 +9,14 @@ interface CategoryProps {
 }
 
 const Category: FC<CategoryProps> = ({ id, title }) => {
-  const { filteredId, filteredProducts } = useAppSelector((state) => ({
+  const { filteredId, filteredProductsCurrent } = useAppSelector((state) => ({
     filteredId: state.isProductsSlice.filteredId,
-    filteredProducts: state.isProductsSlice.filteredProducts,
+    filteredProductsCurrent: state.isProductsSlice.filteredProductsCurrent,
   }));
 
   const categoryItems = useMemo(
-    () => filteredProducts.filter((el) => el.categoryID === id),
-    [id, filteredProducts, filteredId]
+    () => filteredProductsCurrent.filter((el) => el.categoryID === id),
+    [id, filteredProductsCurrent, filteredId]
   );
 
   return (

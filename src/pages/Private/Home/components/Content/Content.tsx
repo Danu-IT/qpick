@@ -7,6 +7,7 @@ const Content = ({}) => {
     <Container>
       {categoryData.map((el) => (
         <Category
+          key={el.id}
           title={el.label}
           id={el.id}></Category>
       ))}

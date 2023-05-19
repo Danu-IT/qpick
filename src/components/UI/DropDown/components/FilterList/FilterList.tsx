@@ -1,5 +1,4 @@
-import React from "react";
-import { FC, useMemo } from "react";
+import { FC, useEffect } from "react";
 import { OptionType } from "../../../../../interfaces";
 import styled from "styled-components";
 import { useAppDispatch, useAppSelector } from "../../../../../hooks/redux";
@@ -11,12 +10,15 @@ interface FilterListProps {
 
 const FilterList: FC<FilterListProps> = ({ content }) => {
   const dispatch = useAppDispatch();
+
   const filteredId = useAppSelector(
     (state) => state.isProductsSlice.filteredId
   );
+
   const handlerFilter = (id: number) => {
     dispatch(changeFilteredId(id));
   };
+
   return (
     <Container>
       {content?.map((el) => (
