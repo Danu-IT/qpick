@@ -3,14 +3,17 @@ import { FC } from "react";
 import { ProdictCurrentI } from "../../interfaces/data";
 import { AiFillStar, AiOutlineHeart } from "react-icons/ai";
 import { BiRuble } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 
 interface ItemProductProps {
   item: ProdictCurrentI;
 }
 
 const ItemProduct: FC<ItemProductProps> = ({ item }) => {
+  const navigate = useNavigate();
+  const handlerProduct = () => navigate(`/product/${item.id}`);
   return (
-    <Container>
+    <Container onClick={handlerProduct}>
       <Like>
         <AiOutlineHeart size={20}></AiOutlineHeart>
       </Like>

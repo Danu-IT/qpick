@@ -55,6 +55,7 @@ export const Container = styled.div`
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   border-radius: 30px 30px 0px 0px;
   padding: 29px;
+  flex: 0 0 auto;
   display: flex;
   justify-content: space-between;
 `;

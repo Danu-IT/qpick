@@ -6,13 +6,15 @@ interface isProductsState {
     fullProducts: ProdictI[];
     filteredProducts: ProdictI[];
     filteredProductsCurrent: ProdictCurrentI[];
+    colorIndex: number;
 }
 
 const initialState: isProductsState = {
     filteredId: 1,
     fullProducts: [],
     filteredProducts: [],
-    filteredProductsCurrent: []
+    filteredProductsCurrent: [],
+    colorIndex: 0,
 }
 
 export const isProductsSlice = createSlice({
@@ -30,9 +32,12 @@ export const isProductsSlice = createSlice({
         },
         changeFilteredProductsCurrent: (state, action: PayloadAction<ProdictCurrentI[]>) => {
             state.filteredProductsCurrent = action.payload;
+        },
+        changeColorIndex: (state, action: PayloadAction<number>) => {
+            state.colorIndex = action.payload;
         }
     }
 })
 
 export default isProductsSlice.reducer;
-export const { changeFilteredId, fetchFullProducts, changeFilteredProducts, changeFilteredProductsCurrent } = isProductsSlice.actions;
+export const { changeFilteredId, fetchFullProducts, changeFilteredProducts, changeFilteredProductsCurrent, changeColorIndex } = isProductsSlice.actions;

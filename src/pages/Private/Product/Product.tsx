@@ -1,13 +1,13 @@
 import Header from "../../../components/Header/Header";
 import Footer from "../../../components/Footer/Footer";
-import styled from "styled-components";
 import Content from "./components/Content/Content";
+import styled from "styled-components";
+import Back from "../../../components/Back/Back";
 
-type Props = {};
-
-const Basket = () => {
+const Product = () => {
   return (
     <Container>
+      <Back></Back>
       <Header></Header>
       <Content></Content>
       <Footer></Footer>
@@ -16,9 +16,10 @@ const Basket = () => {
 };
 
 export const Container = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
 `;
 
-export default Basket;
+export default Product;

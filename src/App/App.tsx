@@ -25,25 +25,25 @@ const App = () => {
 
   const dispatch = useAppDispatch();
 
-  // const fetchData = useCallback(async () => {
-  //   const response = await getAllProductItems();
-  //   const fullProducts: ProdictI[] = response.map((item) => {
-  //     return {
-  //       id: item.data().id,
-  //       brandID: item.data().brandID,
-  //       categoryID: item.data().categoryID,
-  //       colorId: item.data().colorId,
-  //       imageURl: item.data().imageURl,
-  //       model: item.data().model,
-  //       price: item.data().price,
-  //     };
-  //   });
-  //   dispatch(fetchFullProducts(fullProducts));
-  // }, []);
+  const fetchData = useCallback(async () => {
+    const response = await getAllProductItems();
+    const fullProducts: ProdictI[] = response.map((item) => {
+      return {
+        id: item.data().id,
+        brandID: item.data().brandID,
+        categoryID: item.data().categoryID,
+        colorId: item.data().colorId,
+        imageURl: item.data().imageURl,
+        model: item.data().model,
+        price: item.data().price,
+      };
+    });
+    dispatch(fetchFullProducts(fullProducts));
+  }, []);
 
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const createProduct = () => {
     const filteredProductsCurrent: ProdictCurrentI[] = [];
@@ -65,7 +65,10 @@ const App = () => {
           });
         }
       });
-    dispatch(changeFilteredProductsCurrent(filteredProductsCurrent));
+    const qtFilteredProductsCurrent = filteredProductsCurrent.map((el) => {
+      return { ...el, qt: 0 };
+    });
+    dispatch(changeFilteredProductsCurrent(qtFilteredProductsCurrent));
   };
 
   useEffect(() => {
@@ -73,8 +76,11 @@ const App = () => {
       (el) => el.brandID === filteredId
     );
     dispatch(changeFilteredProducts(filteredProducts));
-    createProduct();
   }, [filteredId, fullProducts]);
+
+  useEffect(() => {
+    createProduct();
+  }, [filteredId, filteredProducts]);
 
   return (
     <BrowserRouter>

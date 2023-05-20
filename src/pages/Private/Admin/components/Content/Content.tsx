@@ -193,12 +193,12 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 50px;
-  justify-content: center;
   width: 80%;
   margin: 0 auto;
   border-radius: 20px;
   padding: 10px;
   margin-top: 80px;
+  flex: 1 0 auto;
 `;
 
 export const ContainerContent = styled.div`

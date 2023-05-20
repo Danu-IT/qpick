@@ -35,7 +35,10 @@ const Header = ({}) => {
   const auth: Auth = getAuth();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const currentUser = useAppSelector((state) => state.isAuthSlice.user);
+  const { currentUser, basket } = useAppSelector((state) => ({
+    currentUser: state.isAuthSlice.user,
+    basket: state.isSaveSlice.basket,
+  }));
 
   const name = useMemo(
     () =>
@@ -101,7 +104,7 @@ const Header = ({}) => {
         </Like>
         <Basket>
           <SlBasket size={25}></SlBasket>
-          <Count>22</Count>
+          <Count>{basket.length === 0 ? "" : basket.length}</Count>
         </Basket>
       </Right>
     </Container>

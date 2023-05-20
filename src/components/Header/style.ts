@@ -11,6 +11,7 @@ export const Container = styled.div`
   justify-content: space-between;
   position: relative;
   z-index: 100;
+  padding: 10px 0;
 `;
 export const Left = styled.div`
   display: flex;

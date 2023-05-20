@@ -16,4 +16,5 @@ export interface ProdictCurrentI {
     imageURl: string[] ;
     colorId: number[] ;
     price: string;
+    qt?: number;
 }

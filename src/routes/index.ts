@@ -7,6 +7,7 @@ import NewItem from "../pages/Private/Admin/Admin";
 import Basket from "../pages/Private/Basket/Basket";
 import Contacts from "../pages/Private/Contacts/Contacts";
 import Favorites from "../pages/Private/Favorites/Favorites";
+import Product from "../pages/Private/Product/Product";
 
 
 export interface IRoute {
@@ -22,6 +23,7 @@ export enum RoutesNamesPrivate {
   BASKET = '/basket',
   FAVORITES = '/favorites',
   CONTACTS = "/contacts",
+  PRODUCT = "/product/:id"
 }
 
 export enum RoutesNamesPublic {
@@ -43,6 +45,7 @@ export const privateRoutes: IRoute[] = [
   { path: RoutesNamesPrivate.BASKET, component: Basket, type: "Basket" },
   { path: RoutesNamesPrivate.CONTACTS, component: Contacts, type: "Contacts" },
   { path: RoutesNamesPrivate.FAVORITES, component: Favorites, type: "Favorites" },
+  { path: RoutesNamesPrivate.PRODUCT, component: Product, type: "Product" },
 ];
 
 export const publicRoutes: IRoute[] = [
